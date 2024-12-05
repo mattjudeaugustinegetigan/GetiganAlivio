@@ -1,0 +1,52 @@
+{% extends 'feedapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawFeeder - Add Your Cat Details</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'feedapp/css/add_pet_dog.css' %}">
+  <style>
+    body {
+        background-image: url("{% static 'feedapp/images/dfbg.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: rgba(220, 140, 80, 0.7);
+        background-blend-mode: multiply;
+        height: 100%;
+        margin: 0;
+    }
+</style>
+</head>
+<body>    
+<div class="container">
+        <div class="card">          
+            <img src="{% static 'feedapp/images/cat.png' %}" alt="Cat Profile" class="profile-image"><br>
+            <div class="form-container">
+              <h1><span style="color: #D98250;">Add a {{ pet_type }}</span></h1>
+              <form method="post">
+                  {% csrf_token %}
+                  <input type="text" name="name" placeholder="Enter pet's name" required>
+                  <input type="number" name="age" placeholder="Enter age" required>
+                  <input type="text" name="breed" placeholder="Enter breed" required>
+                  <input type="text" name="food_preference" placeholder="Enter food preference" required>
+                  <select name="feeding_schedule" required>
+                      <option value="">Select feeding schedule</option>
+                      <option value="once">Once a day</option>
+                      <option value="twice">Twice a day</option>
+                      <option value="thrice">Three times a day</option>
+                  </select>
+                  <br>
+                  <button type="submit" class="add-btn">Add {{ pet_type }}</button>
+              </form>
+          </div>
+    </div>
+</div>
+</body>
+</html>
+
+{% endblock %}

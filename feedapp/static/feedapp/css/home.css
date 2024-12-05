@@ -1,0 +1,163 @@
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-blend-mode: multiply;
+     background-color: rgba(220, 140, 80, 0.7); 
+     background-image: url("{% static 'feedapp/images/dfbg.jpg' %}");
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      background-position: center; 
+      margin: 0;
+  }
+   
+  
+  .container {
+    height: 50%;
+    display: flex;
+    align-items: flex-end;          /* Vertical centering inside container */
+    justify-content: center;      /* Horizontal centering inside container */
+    position: fixed;           /* Positioning at the bottom */
+    bottom: 0;                   /* Aligns to the bottom of the screen */
+    width: 100%;                  /* Full width */
+     z-index: 0;
+  }
+  
+  .imgcontainer {       
+    display: flex;                  /* Enable flexbox layout */
+    justify-content: center;        /* Center children horizontally */
+    align-items: flex-end;        /* Align children to the top of the container */
+    height: 40%;              /* Set a height for the container (adjust as needed) */
+    width: 100%;                    /* Full width to avoid overflow */
+    position: relative;             /* Allow absolute positioning of child elements if needed */
+    bottom: 0; 
+    z-index: 1; 
+  }
+  
+  .imgcontainer img {
+    margin-bottom: 10px;
+    width: 25%;                     /* Width of the image */
+    height: auto;                   /* Maintains the aspect ratio */
+    max-width: 100%;                /* Prevents overflow */
+    display: block;                 /* Ensures no extra space at the bottom */
+  }
+  
+  
+  .form-container {
+    height: 99%;
+    width: 70%;
+    padding: 20px;
+    background-color: #fff;       /* White background for the form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
+    border-radius: 30px 30px 0 0;   /* Rounded corners at the top only */
+    text-align: center;
+  }
+   
+      .form-group {
+          margin-bottom: 15px;
+          margin-left:10px;
+          margin-right: 10px;
+      }
+   
+  label {
+      font-size: 15px;
+      display: inline-block;
+      text-align: left;
+      margin-bottom:5px;
+  }
+   
+  input {
+      width: 85%;
+      margin-left:10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+   
+  button {
+      font-family: Arial, sans-serif;
+      font-weight: bold;     
+      width: 20%;
+      padding: 10px;
+      border: none;
+      background-color: #EF8B52;
+      color: #fff;
+      border-radius: 25px;
+      cursor: pointer;
+  }
+  
+  .addpetbtn {
+      font-family: 'Arial', sans-serif; 
+      font-size: 18px;   
+      padding: 10px 20px;         
+  }
+   
+  button:hover {
+          background-color: #f76b1c;
+      }
+      p {
+          margin-top: 15px;
+          font-style: italic;
+          font-size: 14px;
+      }
+  
+          ul {
+              float: left;
+          }
+          .banner {
+              height: 90px;
+              background-color: #D79459A6;
+              display: flex;
+              justify-content: left;
+              align-items: left;
+          }
+          .banner a {
+              text-decoration: none;
+              color: #fff;
+              margin: 0 35px;
+              font-size: 17px;
+          }
+          .banner a:hover {
+              color: #f76b1c;
+   
+          } 
+          .content {
+              display: flex;
+              align-items: center;
+              height: 90vh;
+          }
+          .content img {
+              float: left;
+              max-width: 100%;
+          }
+  
+  .header {
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+              padding: 5px;
+  
+          }
+          .header div {
+              font-family:  "Georgia", serif;
+              font-weight: bold;
+              color: white;
+              font-size: 16px;
+  
+          }
+  
+  
+  li {
+          list-style: none;
+          float: right;
+      }
+  
+  
+  
+  h3 {
+    letter-spacing: 1px;
+    line-height: 1.5;
+    word-spacing: 4px;
+    font-family:  "Georgia", serif;
+    font-weight: 100;
+  }

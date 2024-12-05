@@ -1,0 +1,86 @@
+{% load static %}
+ 
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawFeeder - Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'feedapp/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'feedapp/css/signup.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'feedapp/css/notification.css' %}"> <!-- Include notification styles -->
+</head>
+<body>
+    <div class="signup-container">
+        <div class="left-section">
+            <div class="background-overlay"></div> <!-- Overlay for background effect -->
+            <div class="logo-container"> <!-- Logo container -->
+                <img src="{% static 'feedapp/images/logo.png' %}" alt="Paw Feeder Logo" class="logo">
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="form-box">
+                <h2>Join Us!</h2>
+                <p>Create your account by filling in the details below.</p>
+                <form method="POST" class="signup-form">
+                    {% csrf_token %}
+    
+    <div class="input-container">
+        {{ form.username.label }}  <!-- Label for username -->
+        {{ form.username }}         <!-- Input field for username -->
+        {% if form.username.errors %}
+            <div class="error">{{ form.username.errors }}</div>  <!-- Display errors -->
+        {% endif %}
+    </div>
+
+    <div class="input-container">
+        {{ form.password1.label }}  <!-- Label for password -->
+        {{ form.password1 }}         <!-- Input field for password -->
+        {% if form.password1.errors %}
+            <div class="error">{{ form.password1.errors }}</div>  <!-- Display errors -->
+        {% endif %}
+    </div>
+
+    <div class="input-container">
+        {{ form.password2.label }}  <!-- Label for password confirmation -->
+        {{ form.password2 }}         <!-- Input field for password confirmation -->
+        {% if form.password2.errors %}
+            <div class="error">{{ form.password2.errors }}</div>  <!-- Display errors -->
+        {% endif %}
+    </div>
+
+ 
+                    <button type="submit" class="btn">Sign Up</button>
+                </form>
+                <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+            </div>
+        </div>
+    </div>
+ 
+    {% if messages %}
+        <div class="notification">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+   
+    <script>
+        // Auto-dismiss notifications after a few seconds
+        setTimeout(() => {
+            const notifications = document.querySelectorAll('.notification .message');
+            notifications.forEach(notification => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    notification.remove();
+                }, 500); // Match this with the CSS transition duration
+            });
+        }, 5000); // Time in milliseconds before it fades out
+    </script>
+</body>
+</html>
+{% endblock %}
+ 

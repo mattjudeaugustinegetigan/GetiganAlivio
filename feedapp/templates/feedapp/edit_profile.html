@@ -1,0 +1,53 @@
+{% extends 'feedapp/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawFeeder - Edit Profile</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'feedapp/css/edit_profile.css' %}">
+  <style>
+    body {
+        background-image: url("{% static 'feedapp/images/dfbg.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: rgba(220, 140, 80, 0.7);
+        background-blend-mode: multiply;
+        height: 100%;
+        margin: 0;
+    }
+    
+</style>
+</head>
+<body>    
+    <!-- <div class="imgcontainer">
+        <img src="{% static 'feedapp/images/hi.png' %}" alt="Greeting Image">
+    </div>  -->
+  <div class="container">
+    <div class="form-container">
+    <div class="scroll-content">
+        <div class="profile-container">
+            <form method="POST" class="profile-update-form">
+                {% csrf_token %}
+                    <h2>Update Your Profile, {{ user.username }}</h2>
+                    {{ profile_form.as_p }} <!-- Render the profile update form -->
+                    <button type="submit" name="update_profile">Save Changes</button>
+                </form>
+            </div>
+            <br>
+            <div class="profile-container">
+            <form method="POST" class="password-change-form">
+                {% csrf_token %}
+                    <h2>Change Password</h2>
+                    {{ password_form.as_p }} <!-- Render the password change form -->
+                    <button type="submit" name="change_password">Change Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

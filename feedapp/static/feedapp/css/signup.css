@@ -1,0 +1,127 @@
+/* Styles for Sign Up Page */
+.signup-container {
+    display: flex;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+ 
+/* Left Section Styling */
+.left-section {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+ 
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../images/dfbg.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7; /* Apply 70% opacity to the background image only */
+}
+ 
+.logo-container {
+    position: relative;
+    text-align: center;
+}
+ 
+.logo {
+    width: 600px; /* 3x larger than the original width */
+    max-width: 100%;
+    z-index: 1;
+}
+ 
+.right-section {
+    flex: 1;
+    background-color: #d27f50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+ 
+.logo {
+    width: 600px; /* Keep logo large as requested */
+}
+ 
+.form-box {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+ 
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased gap between input fields */
+}
+ 
+.signup-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+ 
+.input-container {
+    position: relative;
+    margin-bottom: 20px; /* Adjust as needed */
+}
+ 
+.helper-text {
+    font-size: 0.75em;
+    color: red;
+    position: absolute;
+    bottom: -25px; /* Positioning below the input field */
+    left: 0;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition */
+    transform: translateY(10px); /* Initial position */
+    background-color: rgba(255, 255, 255, 0.9); /* Background for bubble effect */
+    padding: 5px 10px; /* Padding for the bubble */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+    z-index: 1; /* Ensure it appears above other elements */
+}
+ 
+.input-container input:focus + .helper-text {
+    opacity: 1; /* Show the helper text */
+    transform: translateY(0); /* Move it to its original position */
+}
+ 
+.btn {
+    background-color: #f48024;
+    color: white;  
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+ 
+.btn:hover {
+    background-color: #e06c1e;
+}
+ 
+/* Login link */
+p a {
+    color: #f48024;
+    text-decoration: none;
+}
+ 
+p a:hover {
+    text-decoration: underline;
+}
+ 

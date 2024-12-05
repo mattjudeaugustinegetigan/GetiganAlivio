@@ -1,0 +1,108 @@
+{% extends 'feedapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawFeeder - Edit Pet</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'feedapp/css/pet_list.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'feedapp/images/dfbg.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: rgba(220, 140, 80, 0.7);
+            background-blend-mode: multiply;
+            height: 100%;
+            margin: 0;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            text-align: center;
+        }
+        .modal button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            
+            <div class="form-group">
+                <h1>Keep your Furbabies happy and healthy,<br>
+                    track meals effortlessly with <span style="color: #EF8B52;">Paw Feeder!</span>
+                </h1>
+
+                <div class="edit-container">
+                    <h2><span style="color: #D98250;">Edit {{ pet.name }}'s details</span></h2>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="save-btn">Save Changes</button>
+                    </form>
+
+                    <br>
+                    <button type="button" class="delete-btn" onclick="openModal()">Delete Pet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Delete Confirmation -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h2>Are you sure you want to delete {{ pet.name }}?</h2>
+            <form action="{% url 'delete_pet' pet.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="delete-confirm-btn">Yes, delete</button>
+                <button type="button" onclick="closeModal()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Open the modal
+        function openModal() {
+            document.getElementById("deleteModal").style.display = "block";
+        }
+
+        // Close the modal
+        function closeModal() {
+            document.getElementById("deleteModal").style.display = "none";
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            var modal = document.getElementById("deleteModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
+{% endblock %}

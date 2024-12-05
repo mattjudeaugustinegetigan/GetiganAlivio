@@ -1,0 +1,46 @@
+html {
+    height: 100%;
+    margin: 0;
+    background-blend-mode: multiply;
+     background-color: rgba(220, 140, 80, 0.7); 
+     background-image: url("{% static 'feedapp/images/dfbg.jpg' %}");
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      background-position: center; 
+      margin: 0;
+  }
+
+  .banner {
+    height: 90px;
+    background-color: #D79459A6;
+    display: flex;
+    justify-content: space-between; /* Adjust space distribution */
+    align-items: center;
+    padding: 0 20px; /* Add padding for alignment */
+}
+
+.greeting {
+    font-family: "Georgia", serif; /* Set font style to Georgia */
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+    margin-right: auto; /* Pushes the greeting to the left */
+
+}
+
+.header-nav {
+    display: flex; /* Ensure the nav links are displayed in a row */
+    gap: 20px; /* Space between nav items */
+}
+
+.header-nav a {
+    font-family: "Georgia", serif; /* Set font style to Georgia */
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.header-nav a:hover {
+    color: #808080 !important;
+}

@@ -1,0 +1,15 @@
+{% extends 'feedapp/base.html' %}
+{% block content %}
+<div class="form-container">
+    <h2>Add Feeding Time for {{ pet.name }}</h2>
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <input type="time" name="time" required>
+        <input type="text" name="meal_type" placeholder="Enter meal type (e.g., Breakfast)" required>
+        <button type="submit">Add Feeding Time</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'feedapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawFeeder - Home</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'feedapp/css/pet_list.css' %}">
+  <style>
+    body {
+        background-image: url("{% static 'feedapp/images/dfbg.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: rgba(220, 140, 80, 0.7);
+        background-blend-mode: multiply;
+        height: 100%;
+        margin: 0;
+    }
+    
+</style>
+</head>
+<body>    
+    <!-- <div class="imgcontainer">
+        <img src="{% static 'feedapp/images/hi.png' %}" alt="Greeting Image">
+    </div>  -->
+  <div class="container">
+
+    <div class="scroll-content">
+      <div class="form-group">
+
+        <div class="container">
+            <div class="form-container">
+                <h1>Manage Feeding Schedule for {{ pet.name }}</h1>
+                <div class="pet-details"> 
+                    <p><strong>Food Preference:</strong> {{ pet.food_preference }}</p>
+                    <p><strong>Feeding Schedule:</strong> {{ pet.feeding_schedule }}</p>
+                </div>
+        
+                <div class="feeding-schedule">
+                    <h2>Feeding Times</h2>
+                    <ul>
+                        {% for schedule in feeding_schedule %}
+                            <li>
+                                <p><strong>Time:</strong> {{ schedule.time }}</p>
+                                <p><strong>Meal Type:</strong> {{ schedule.meal_type }}</p>
+                                <a href="{% url 'edit_feeding_schedule' schedule.id %}">Edit</a>
+                            </li>
+                        {% empty %}
+                            <p>No feeding times added yet.</p>
+                        {% endfor %}
+                    </ul>
+                </div>
+        
+                <a href="{% url 'add_feeding_schedule' pet.id %}" class="btn">Add Feeding Time</a>
+            </div>
+            </div>
+        </div>
+</div>
+</div>
+        {% endblock %}

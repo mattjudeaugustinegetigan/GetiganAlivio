@@ -1,0 +1,45 @@
+{% load static %}
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'feedapp/css/styles.css' %}">
+</head>
+<body>    
+    <div class="banner">
+        <ul><img src="{% static 'feedapp/images/logo.png' %}" width="70px" height="70px" alt="Logo"></ul>
+        <div class="greeting">
+            Hello, {% if request.user.is_authenticated %}{{ request.user.username }}{% else %}Guest{% endif %}!
+        </div>
+        <nav class="header-nav">
+            <a href="{% url 'home' %}" class="nav-link">Add Pet</a>
+            <a href="{% url 'pet_list' %}" class="nav-link">Pet List</a> 
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="nav-link">Profile</a> 
+                <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="nav-link">Login</a>
+                <a href="{% url 'signup' %}" class="nav-link">Sign Up</a>
+            {% endif %}
+
+                {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+
+        </nav>
+    </div>
+    </div>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>

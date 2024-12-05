@@ -1,0 +1,29 @@
+.notification {
+    position: fixed; /* Position at the top of the screen */
+    top: 20px; /* Distance from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    z-index: 1000; /* Bring it to the front */
+    max-width: 400px; /* Maximum width */
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding around the message */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    transition: opacity 0.5s ease; /* Fade out effect */
+}
+ 
+.message {
+    color: white; /* Default text color */
+    margin-bottom: 10px; /* Space between messages */
+    padding: 10px; /* Padding inside message box */
+}
+ 
+/* Success message style */
+.message.success {
+    background-color: #4CAF50; /* Green background */
+}
+ 
+/* Error message style */
+.message.error {
+    background-color: #F44336; /* Red background */
+}

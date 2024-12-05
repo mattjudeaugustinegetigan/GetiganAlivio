@@ -1,0 +1,290 @@
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-blend-mode: multiply;
+     background-color: rgba(220, 140, 80, 0.7); 
+     background-image: url("{% static 'feedapp/images/dfbg.jpg' %}");
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      background-position: center; 
+      margin: 0;
+  }
+   
+  
+  .container {
+    height: 50%;
+    display: flex;
+    align-items: flex-end;        
+    justify-content: center;      
+    position: fixed;          
+    bottom: 0;                  
+    width: 100%;              
+    z-index: 0;
+     
+  }
+  .imgcontainer {       
+    display: flex;                  /* Enable flexbox layout */
+    justify-content: center;        /* Center children horizontally */
+    align-items: flex-end;        /* Align children to the top of the container */
+    height: 40%;              /* Set a height for the container (adjust as needed) */
+    width: 100%;                    /* Full width to avoid overflow */
+    position: relative;             /* Allow absolute positioning of child elements if needed */
+    bottom: 0; 
+    z-index: 1; 
+  }
+  
+  .imgcontainer img {
+    margin-bottom: 10px;
+    width: 25%;                     /* Width of the image */
+    height: auto;                   /* Maintains the aspect ratio */
+    max-width: 100%;                /* Prevents overflow */
+    display: block;                 /* Ensures no extra space at the bottom */
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 70%;
+    min-height: 50vh; /* Limit the height to fit within the viewport */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 30px; /* Rounded top-left corner */
+    border-top-right-radius: 30px; /* Rounded top-right corner */
+    border-bottom-left-radius: 0; /* No border-radius on bottom-left */
+    border-bottom-right-radius: 0;
+    overflow-y: auto; /* Enable vertical scroll */
+    justify-content: flex-start;
+    position: relative;
+}
+
+.scroll-content {
+    max-height: 50vh; /* Set max height for scrolling */
+    overflow-y: auto; /* Enable vertical scroll */
+    width: 100%; /* Ensure it takes full width of form-container */
+    padding: 10px;
+    box-sizing: border-box; /* Include padding in height */
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .scroll-content {
+        max-height: 70vh; /* Adjust for smaller screens */
+    }
+}
+      .form-group {
+        
+        margin-bottom: 15px;
+        text-align: center;
+      }
+   
+  label {
+      font-size: 15px;
+      display: inline-block;
+      text-align: left;
+      margin-bottom:5px;
+  }
+   
+  input {
+      width: 85%;
+      margin-left:10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+
+  }
+   
+  button {
+      font-family: Arial, sans-serif;
+      font-weight: bold;     
+      width: 150px;
+      padding: 10px;
+      border: none;
+      background-color: #EF8B52;
+      color: #fff;
+      border-radius: 25px;
+      cursor: pointer;
+  }
+  
+  .addpetbtn {
+      font-family: 'Arial', sans-serif; 
+      font-size: 16px;   
+      padding: 10px 20px;         
+  }
+   
+  button:hover {
+          background-color: #f76b1c;
+      }
+      p {
+          margin-top: 15px;
+          font-style: italic;
+          font-size: 14px;
+      }
+        
+          .banner {
+              height: 90px;
+              background-color: #D79459A6;
+              display: flex;
+              justify-content: left;
+              align-items: left;
+          }
+          .banner a {
+              text-decoration: none;
+              color: #fff;
+              margin: 0 35px;
+              font-size: 17px;
+          }
+          .banner a:hover {
+              color: #187078;
+   
+          } 
+          .content {
+              display: flex;
+              align-items: center;
+              height: 90vh;
+          }
+          .content img {
+              float: left;
+              max-width: 100%;
+          }
+  
+  .header {
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+              padding: 5px;
+  
+          }
+          .header div {
+              font-family:  "Georgia", serif;
+              font-weight: bold;
+              color: white;
+              font-size: 16px;
+  
+          }
+  
+  
+  li {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start; 
+      }
+  
+  
+  
+  h3 {
+    letter-spacing: 1px;
+    line-height: 1.5;
+    word-spacing: 4px;
+    font-family:  "Georgia", serif;
+    font-weight: 100;
+  }
+
+  .pet-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff8c4b;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 120px;
+    width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0 auto;
+}
+
+.pet-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center child elements within the list */
+    justify-content: center;
+    width: 100%; /* Ensure the list takes the full width of the container */
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.pet-list li {
+    display: block; /* Each item is on its own line */
+    width: 80%;
+    margin-bottom: 10px; /* Add space between items if needed */
+    padding-left: 20px; /* Add padding for indentation */
+}
+
+ul.pet-list {
+    display: flex;
+    justify-content: center; /* Center the list items */
+    width: 60%
+}
+
+.pet-info img {
+    width: 200px;
+    height: 100%;
+    border-radius: 50%;
+    
+}
+.pet-photo {
+    margin-left: 10px;
+    width: 100%; 
+    height: 100%; /* maintains aspect ratio */
+}
+.pet-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.pet-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.pet-breed {
+    font-size: 14px;
+    color: #fff;
+}
+
+.edit-link {
+    font-size: 12px;
+    color: #fefefe;
+    text-decoration: underline;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.edit-btn {
+    color: #EF8B52;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 25px; /* Adjust this value for rounded corners */
+    width: 350px; /* Adjust width as needed */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    text-align: center;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    margin: 10px 5px; /* Space between buttons */
+    cursor: pointer;
+    width: 80%
+}
+
+input {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,63 @@
+{% extends 'feedapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawFeeder - Home</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'feedapp/css/pet_list.css' %}">
+  <style>
+    body {
+        background-image: url("{% static 'feedapp/images/dfbg.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: rgba(220, 140, 80, 0.7);
+        background-blend-mode: multiply;
+        height: 100%;
+        margin: 0;
+    }
+    
+</style>
+</head>
+<body>    
+    <!-- <div class="imgcontainer">
+        <img src="{% static 'feedapp/images/hi.png' %}" alt="Greeting Image">
+    </div>  -->
+  <div class="container">
+    <div class="form-container">
+    <div class="scroll-content">
+      <div class="form-group">
+      <h1>Keep  your  Furbabies
+          happy and healthy, <br> 
+          track meals effortlessly 
+          with <span style="color: #EF8B52;"> Paw  Feeder!</span></h1><br>
+
+          <div class="pet-list">
+            <ul>
+                {% if pets %}
+                    {% for pet in pets %}
+                        <li>
+                            <a href="{% url 'manage_feeding_schedule' pet.id %}" style="text-decoration: none; color: inherit;">
+                                <div class="pet-info">
+                                    <img src="{% static 'feedapp/images/dog.png' %}" alt="Pet Photo" class="pet-photo">
+                                    <div class="pet-details">
+                                        <strong>{{ pet.name }}, &nbsp; &nbsp;{{ pet.age }}</strong>
+                                        <br> {{ pet.breed }} <br>
+                                        <br><a href="{% url 'edit_pet' pet.id %}">Edit</a>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <p>No pets added yet.</p>
+                {% endif %}
+                
+            </ul>
+        </div>
+    </div>
+{% endblock %}

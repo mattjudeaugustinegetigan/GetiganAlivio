@@ -1,0 +1,54 @@
+{% extends 'feedapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawFeeder - Profile</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'feedapp/css/profile.css' %}">
+  <style>
+    body {
+        background-image: url("{% static 'feedapp/images/dfbg.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: rgba(220, 140, 80, 0.7);
+        background-blend-mode: multiply;
+        height: 100%;
+        margin: 0;
+    }
+    
+</style>
+</head>
+<body>    
+    <!-- <div class="imgcontainer">
+        <img src="{% static 'feedapp/images/hi.png' %}" alt="Greeting Image">
+    </div>  -->
+  <div class="container">
+    <div class="form-container">
+                <div class="profile-container">
+                    <h2>How are you, {{ user.username }}?</h2>
+                
+                    <div class="profile-item">
+                        <strong>Username:</strong>
+                        <input type="text" value="{{ user.username }}" readonly>
+                    </div>
+                
+                    <div class="profile-item">
+                        <strong>Email Address:</strong>
+                        <input type="email" value="{{ user.email }}" readonly>
+                    </div>
+                
+                    <div class="profile-item">
+                        <strong>Password:</strong>
+                        <input type="password" value="********" readonly>
+                    </div>
+                    <a href="{% url 'edit_profile' %}" class="btn">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

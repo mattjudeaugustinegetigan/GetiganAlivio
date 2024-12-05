@@ -1,0 +1,47 @@
+{% extends 'feedapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawFeeder - Home</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'feedapp/css/pet_list.css' %}">
+  <style>
+    body {
+        background-image: url("{% static 'feedapp/images/dfbg.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: rgba(220, 140, 80, 0.7);
+        background-blend-mode: multiply;
+        height: 100%;
+        margin: 0;
+    }
+
+    
+</style>
+</head>
+<div class="scroll-content">
+    <div class="form-group">
+      <div class="container">
+            <div class="form-container">
+                <h2>Add Feeding Time for {{ pet.name }}</h2>
+                {% if error_message %}
+                    <p class="error">{{ error_message }}</p>
+                {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="time" name="time" required>
+                    
+                    <input type="text" name="meal_type" placeholder="Enter meal type (e.g., Breakfast)" required>
+                    
+                    <button type="submit">Add Feeding Time</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

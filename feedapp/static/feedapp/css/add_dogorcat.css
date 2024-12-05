@@ -1,0 +1,154 @@
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-blend-mode: multiply;
+     background-color: rgba(220, 140, 80, 0.7); 
+     background-image: url('dfbg.jpg'); 
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      background-position: center; 
+      margin: 0;
+  
+  }
+  
+  .container {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      gap: 30px;
+      justify-content: center;
+      width: 60%; 
+      height: 50%;
+      padding: 30px;
+      border-radius: 25px;
+      background-color: transparent;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .card {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 40%;
+  
+  }
+  
+  .card img {
+      width: 65%;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .card h4 {
+      font-size: 1rem;
+      color: #EF8B52;
+      margin-bottom: 15px;
+  }
+  
+  .profile-image {
+      border-radius: 20px; /* Adjust the radius as needed */
+  }
+  
+  .add-btn {
+      font-family: 'Arial', sans-serif; 
+      font-size: 14px;   
+      padding: 15px 20px; 
+
+  }
+  
+  .add-btn:hover {
+      background-color: #f76b1c;
+  }
+
+  
+  label {
+      font-size: 15px;
+      display: inline-block;
+      text-align: left;
+      margin-bottom:5px;
+  }
+   
+  input {
+      width: 85%;
+      margin-left:10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+   
+  .button-style {
+      margin-top: 15px;
+     font-family: Arial, sans-serif;
+      font-weight: bold;     
+      width: 50%;
+      padding: 10px;
+      border: none;
+      background-color: #EF8B52;
+      color: #fff;
+      border-radius: 25px;
+      cursor: pointer;
+  
+  }
+   
+  
+      p {
+          margin-top: 15px;
+          font-style: italic;
+          font-size: 14px;
+      }
+  
+          ul {
+              float: left;
+          }
+          .banner {
+              height: 90px;
+              background-color: #D79459A6;
+              display: flex;
+              justify-content: left;
+              align-items: left;
+          }
+          .banner a {
+              text-decoration: none;
+              color: #fff;
+              margin: 0 35px;
+              font-size: 17px;
+          }
+          .banner a:hover {
+              color: #187078;
+   
+          } 
+          .content {
+              display: flex;
+              align-items: center;
+              height: 90vh;
+          }
+          .content img {
+              float: left;
+              max-width: 100%;
+          }
+  
+  .header {
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+              padding: 5px;
+  
+          }
+       .header div {
+              font-family:  "Georgia", serif;
+              font-weight: bold;
+              color: white;
+              font-size: 16px;
+  
+          }
+  
+  
+  li {
+          list-style: none;
+          float: right;
+      }

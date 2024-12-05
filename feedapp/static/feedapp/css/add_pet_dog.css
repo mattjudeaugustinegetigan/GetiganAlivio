@@ -1,0 +1,199 @@
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-blend-mode: multiply;
+     background-color: rgba(220, 140, 80, 0.7); 
+     background-image: url('dfbg.jpg'); 
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      background-position: center; 
+      margin: 0;
+  
+  }
+  
+  .container {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      justify-content: center;
+      width: 65%; 
+      height: 60%;
+      padding: 30px;
+      border-radius: 25px;
+  
+  }
+  
+  .card {
+    border-radius: 25px;
+      display: flex;
+      justify-content: left;
+      text-align: left;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 90%;
+  
+  }
+  
+  .card img {
+      margin-left: 50px;
+      width: 400px;
+      height: auto;
+      margin: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .card h4 {
+      font-size: 1rem;
+      color: #EF8B52;
+      margin-bottom: 15px;
+  }
+  
+  .profile-image {
+      border-radius: 25px; /* Adjust the radius as needed */
+  }
+  
+  .add-btn {
+      font-family: 'Arial', sans-serif; 
+      font-size: 14px;   
+      padding: 10px 20px; 
+  }
+  
+  .add-btn:hover {
+      background-color: #f76b1c;
+  }
+  
+  label {
+      font-size: 15px;
+      display: inline-block;
+      text-align: left;
+      margin-bottom:5px;
+  }
+   
+  input {
+      width: 85%;
+      margin-left:10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+   
+  button {
+      margin: 15px;
+     font-family: Arial, sans-serif;
+      font-weight: bold;     
+      width: 30%;
+      height: 10%;
+      padding: 10px;
+      border: none;
+      background-color: #EF8B52;
+      color: #fff;
+      border-radius: 25px;
+      cursor: pointer;
+  
+  }
+   
+  
+      p {
+          margin-top: 15px;
+          font-style: italic;
+          font-size: 14px;
+      }
+  
+          ul {
+              float: left;
+          }
+          .banner {
+              height: 90px;
+              background-color: #D79459A6;
+              display: flex;
+              justify-content: left;
+              align-items: left;
+          }
+          .banner a {
+              text-decoration: none;
+              color: #fff;
+              margin: 0 35px;
+              font-size: 17px;
+          }
+          .banner a:hover {
+              color: #187078;
+   
+          } 
+          .content {
+              display: flex;
+              align-items: center;
+              height: 90vh;
+          }
+          .content img {
+              float: left;
+              max-width: 100%;
+          }
+  
+  .header {
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+              padding: 5px;
+  
+          }
+       .header div {
+              font-family:  "Georgia", serif;
+              font-weight: bold;
+              color: white;
+              font-size: 16px;
+  
+          }
+  
+  .vertical-line {
+              width: 1px; /* Adjust the width of the line */
+              height: 55px; /* Set the height of the line to 10 cm */
+              background-color: white; /* Set the color of the line */
+              margin: 20px; /* Optional: Adjust the margin around the line */
+          }
+  
+  li {
+          list-style: none;
+          float: right;
+      }
+  
+  
+      .form-container {
+          margin-top: 50px;
+      }
+      .form-container input[type="text"],
+      .form-container input[type="number"],
+      .form-container select {
+          width: 60%;
+          padding: 8px;
+          margin: 5px 0;
+          border: none;
+          border-radius: 15px;
+          background-color: #ffe5b4;
+          font-size: 16px;
+          color: #000;
+      }
+      .form-container input[type="text"]::placeholder,
+      .form-container input[type="number"]::placeholder,
+      .form-container select {
+          color: #e87b55;
+      }
+  
+      .form-container .link {
+          text-align: center;
+          margin-top: 10px;
+          font-style: italic;
+          font-size: 11px;
+      }
+      .form-container .link a {
+          color: #e87b55;
+          text-decoration: none;
+          font-weight: bold;
+      }
+      .form-container .link a:hover {
+          text-decoration: underline;
+      }
