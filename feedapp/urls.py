@@ -22,8 +22,8 @@ urlpatterns = [
     path('profile/edit/', views.edit_profile_view, name='edit_profile'),
     path('manage-feeding-schedule/<int:pet_id>/', views.manage_feeding_schedule, name='manage_feeding_schedule'),
     path('add-feeding-schedule/<int:pet_id>/', views.add_feeding_schedule, name='add_feeding_schedule'),
-    path('edit-feeding-schedule/<int:schedule_id>/', views.edit_feeding_schedule, name='edit_feeding_schedule'),
-
+    path('edit-feeding-schedule/<int:feeding_schedule_id>/', views.edit_feeding_schedule, name='edit_feeding_schedule'),
+    path('feeding-schedule/delete/<int:feeding_schedule_id>/', views.delete_feeding_schedule, name='delete_feeding_schedule'),
 ]
 
 

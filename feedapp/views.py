@@ -1,24 +1,22 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from .models import Pet
+from .models import Pet, FeedingSchedule  
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .forms import SignupForm
+from .forms import SignupForm, PetForm, UserProfileForm, ProfileUpdateForm, CustomPasswordChangeForm
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import PetForm
 from django.shortcuts import get_object_or_404
-from django.contrib.auth import logout
-from .forms import UserProfileForm
-from django.contrib.auth import update_session_auth_hash 
-from .forms import ProfileUpdateForm
-from .forms import ProfileUpdateForm, CustomPasswordChangeForm
-from .models import Pet, FeedingSchedule  
+from django.contrib.auth import logout, update_session_auth_hash 
+from django.core.mail import send_mail
+from django.conf import settings
+from datetime import datetime, timedelta
+from django.utils.timezone import make_aware
 
 
 def home(request):
     return render(request, 'feedapp/home.html')
- 
+
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -37,7 +35,7 @@ def login_view(request):
         form = AuthenticationForm()
    
     return render(request, 'feedapp/login.html', {'form': form})
- 
+
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -112,7 +110,6 @@ def pet_list(request):
     pets = Pet.objects.filter(user=request.user)  # Only show pets of the logged-in user
     return render(request, 'feedapp/pet_list.html', {'pets': pets})
 
-
 def edit_pet(request, pet_id):
     pet = get_object_or_404(Pet, id=pet_id)
 
@@ -133,9 +130,9 @@ def delete_pet(request, pet_id):
         pet.delete()
         return redirect('pet_list')  # Redirect to the pet list page or another page after deletion
     return render(request, 'feedapp/delete_pet_confirm.html', {'pet': pet})
-    
+
 def custom_logout(request):
-    return redirect('login') 
+    return redirect('login')
 
 @login_required
 def profile_view(request):
@@ -189,12 +186,33 @@ def edit_profile_view(request):
         'password_form': password_form,
     })
 
-
 @login_required
 def manage_feeding_schedule(request, pet_id):
     pet = get_object_or_404(Pet, id=pet_id, user=request.user)
     feeding_schedule = FeedingSchedule.objects.filter(pet=pet)
-    
+
+    # Get the current time (naive datetime)
+    current_time = datetime.now()
+
+    # Check if it's time to feed the pet based on the feeding schedule
+    for schedule in feeding_schedule:
+        feeding_time = schedule.time
+
+        # Convert the feeding_time (which is a time object) to a datetime object
+        feeding_datetime = datetime.combine(current_time.date(), feeding_time)
+
+        # Now both feeding_datetime and current_time are naive and can be compared
+        if feeding_datetime <= current_time < feeding_datetime + timedelta(minutes=10):  # 10-minute window
+            # Send an email notification
+            send_mail(
+                'Time to Feed Your Pet!',
+                f'It\'s time to feed {pet.name}! Please give them {schedule.meal_type}.',
+                settings.DEFAULT_FROM_EMAIL,
+                [request.user.email],  # Send email to the logged-in user
+            )
+            # Optionally, you can show a message on the page
+            messages.success(request, f'It\'s time to feed {pet.name} with {schedule.meal_type}!')
+
     context = {
         'pet': pet,
         'feeding_schedule': feeding_schedule,  # List of feeding schedules associated with the pet
@@ -218,13 +236,31 @@ def add_feeding_schedule(request, pet_id):
     return render(request, 'feedapp/add_feeding_schedule.html', {'pet': pet})
 
 @login_required
-def edit_feeding_schedule(request, schedule_id):
-    schedule = get_object_or_404(FeedingSchedule, id=schedule_id, pet__user=request.user)
+def edit_feeding_schedule(request, feeding_schedule_id):
+    # Change feeding_schedule_id to match the parameter name in the URL
+    feeding_schedule = get_object_or_404(FeedingSchedule, id=feeding_schedule_id)
+    pet = feeding_schedule.pet
     
     if request.method == 'POST':
-        schedule.time = request.POST.get('time', schedule.time)
-        schedule.meal_type = request.POST.get('meal_type', schedule.meal_type)
-        schedule.save()
-        return redirect('manage_feeding_schedule', pet_id=schedule.pet.id)
-    
-    return render(request, 'feedapp/edit_feeding_schedule.html', {'schedule': schedule})
+        time = request.POST.get('time')
+        meal_type = request.POST.get('meal_type')
+        
+        if time and meal_type:
+            feeding_schedule.time = time
+            feeding_schedule.meal_type = meal_type
+            feeding_schedule.save()
+            return redirect('manage_feeding_schedule', pet_id=pet.id)
+        else:
+            error_message = "Both time and meal type are required."
+            return render(request, 'feedapp/edit_feeding_schedule.html', {'feeding_schedule': feeding_schedule, 'error_message': error_message})
+
+    return render(request, 'feedapp/edit_feeding_schedule.html', {'feeding_schedule': feeding_schedule})
+
+@login_required
+def delete_feeding_schedule(request, feeding_schedule_id):
+    feeding_schedule = get_object_or_404(FeedingSchedule, id=feeding_schedule_id, pet__user=request.user)
+    if request.method == 'POST':
+        feeding_schedule.delete()
+        messages.success(request, "Feeding schedule deleted successfully.")
+        return redirect('manage_feeding_schedule', pet_id=feeding_schedule.pet.id)
+    return redirect('manage_feeding_schedule', pet_id=feeding_schedule.pet.id)
