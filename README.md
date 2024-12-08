@@ -1,7 +1,3 @@
-Here's the updated README.md file with Django Python as the backend framework:
-
----
-
 # Paw Feeder System
 
 The **Paw Feeder System** is an innovative application designed to help pet owners efficiently manage their pets' profiles, feeding schedules, and overall care. With features like detailed pet profiles, feeding reminders, and secure user authentication, the system ensures a seamless experience for managing your furry friends' needs.
