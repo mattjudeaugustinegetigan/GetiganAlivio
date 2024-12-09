@@ -34,6 +34,16 @@ Paw Feeder System aims to simplify the lives of pet owners by providing a user-f
 ![Screenshot 2024-12-09 104743](https://github.com/user-attachments/assets/99220365-beec-416f-a41c-94bffa5e1c32)
 
 ---
+## Get Started
+
+Access local copy with the following steps:
+##
+1) Clone the repository:
+https://github.com/mattjudeaugustinegetigan/GetiganAlivio?tab=readme-ov-file
+2)
+
+
+
 
 ## Functional Requirements
 
@@ -92,6 +102,8 @@ Our development timeline is carefully planned to ensure timely delivery of featu
 ### **Entity-Relationship Diagram (ERD)**  
 The system's database structure is designed to efficiently store and retrieve data.  
 [View the ERD here](https://dbdiagram.io/d/AlivioGetigan-ERD-66ed27b7a0828f8aa67abfe1)
+![image](https://github.com/user-attachments/assets/1160bc7e-ce61-4f1b-981b-499fe839e958)
+
 
 ---
 
