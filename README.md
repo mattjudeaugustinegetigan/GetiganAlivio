@@ -29,6 +29,10 @@ The **Paw Feeder System** is an innovative application designed to help pet owne
 ## Introduction
 Paw Feeder System aims to simplify the lives of pet owners by providing a user-friendly interface for managing pet care. From creating personalized pet profiles to setting reminders for feeding schedules, the platform is built with the goal of improving the overall pet care experience.
 
+![Screenshot 2024-12-09 102821](https://github.com/user-attachments/assets/3d42f0c4-4513-4410-a506-cc3cd6809bbb)
+
+![Screenshot 2024-12-09 104743](https://github.com/user-attachments/assets/99220365-beec-416f-a41c-94bffa5e1c32)
+
 ---
 
 ## Functional Requirements
