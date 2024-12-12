@@ -44,8 +44,7 @@ Access local copy with the following steps:
 4) Periodically run task: <br/> pip install django-celery-beat <br/> python manage.py migrate django_celery_beat
 5) Run the application: <br/> python manage.py runserver
 
-
-
+---
 ## Functional Requirements
 
 ### **User Registration and Authentication**
