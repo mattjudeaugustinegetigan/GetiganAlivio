@@ -38,10 +38,11 @@ Paw Feeder System aims to simplify the lives of pet owners by providing a user-f
 
 Access local copy with the following steps:
 ##
-1) Clone the repository:
-https://github.com/mattjudeaugustinegetigan/GetiganAlivio?tab=readme-ov-file
-2)
-
+1) Clone the repository: <br/> https://github.com/mattjudeaugustinegetigan/GetiganAlivio?tab=readme-ov-file
+2) Integrate Celery by installing celery and redis: <br/> pip install celery redis
+3) Run celery by starting the worker in the terminal: <br/> celery -A paw_feeder --loglevel=info
+4) Periodically run task: <br/> pip install django-celery-beat <br/> python manage.py migrate django_celery_beat
+5) Run the application: <br/> python manage.py runserver
 
 
 
